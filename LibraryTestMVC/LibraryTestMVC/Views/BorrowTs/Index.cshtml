@@ -1,0 +1,89 @@
+﻿@model IEnumerable<LibraryTestMVC.Models.BorrowT>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TakenDate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>*@
+            <th>
+                Author Name
+            </th>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Book Page Count
+            </th>
+            <th>
+                Student First Name
+            </th>
+            <th>
+                Student Last Name
+            </th>
+            <th>
+                Student Age
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakenDate)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorName)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Book.BookId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookPageCount)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentAge)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BorrowId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BorrowId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BorrowId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
