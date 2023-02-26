@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CrudTwoTables_feb9.props" />
+</Project>
